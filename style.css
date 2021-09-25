@@ -1,0 +1,109 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #080808;
+    font-family: 'Overlock', cursive;
+    padding-top: 0;
+    color: azure;
+}
+
+.wrapper{
+    display: flex;
+    margin-top: 69px 0;
+    width: 95%;
+    height: 83vh;
+    flex-direction: column;
+    /* margin: 0 auto; */
+    /* position: absolute;
+    left:50%;
+    transform: translateX(-50%); */
+}
+.logo{
+    position: relative;
+    display: flex;
+    position: relative;
+    margin-top: 116px;
+}
+.logo img{
+    margin: 0 auto;
+    width: 100px;
+    height: 100px;
+    
+}
+
+
+
+.coming-soon-div{
+    margin:90px auto;
+    width: 100%;
+    font-family: 'Bonheur Royale', cursive;
+    margin: 20px;
+    /* display: flex; */
+    /* height: 20%; */
+    /* align-items: center; */
+}
+
+.coming-soon-div h1{
+    text-align: center;
+    font-size: 5rem;
+    line-height: 100px;
+}
+
+h6{
+    text-align: center;
+    font-size: 13px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.time-box{
+    margin: 0 auto;
+    margin-top: 20px;
+    position: relative;
+    margin-top: 5%;
+    display: flex;
+    font-family: 'Handlee', cursive;
+    font-size: 20px;
+    flex-direction: column;
+}
+
+.countdown{
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    margin: 0 0 30px 0 ;
+}
+
+.time{
+    flex: 1;
+
+}
+
+.content{
+    font-family: 'Overlock', cursive;
+
+}
+
+.submit-div{
+    margin: 20px 0;
+}
+
+.submit-div input{
+    padding: 10px;
+    width: 500px;
+    border: none;
+    outline: none;
+}
+
+.submit-div .btn{
+    padding: 10px;
+    transition: all 2s ease;
+}
+
+.submit-div .btn:hover{
+    background-color: blueviolet;
+    cursor: pointer;
+}
