@@ -13,20 +13,16 @@ body{
 
 .wrapper{
     display: flex;
-    margin-top: 69px 0;
     width: 95%;
-    height: 83vh;
+    height: 68vh;
     flex-direction: column;
-    /* margin: 0 auto; */
-    /* position: absolute;
-    left:50%;
-    transform: translateX(-50%); */
+    margin: 0 auto;
 }
 .logo{
     position: relative;
     display: flex;
     position: relative;
-    margin-top: 116px;
+    margin-top: 50px;
 }
 .logo img{
     margin: 0 auto;
@@ -42,9 +38,6 @@ body{
     width: 100%;
     font-family: 'Bonheur Royale', cursive;
     margin: 20px;
-    /* display: flex; */
-    /* height: 20%; */
-    /* align-items: center; */
 }
 
 .coming-soon-div h1{
@@ -60,8 +53,7 @@ h6{
 }
 
 .time-box{
-    margin: 0 auto;
-    margin-top: 20px;
+    margin: auto;
     position: relative;
     margin-top: 5%;
     display: flex;
@@ -74,7 +66,8 @@ h6{
     display: flex;
     flex: 1;
     justify-content: center;
-    margin: 0 0 30px 0 ;
+    margin: 0 0 30px 0;
+    text-align: center;
 }
 
 .time{
@@ -93,8 +86,9 @@ h6{
 
 .submit-div input{
     padding: 10px;
-    width: 500px;
+    min-width: 265px;
     border: none;
+    border-radius: 10px;
     outline: none;
 }
 
@@ -106,4 +100,28 @@ h6{
 .submit-div .btn:hover{
     background-color: blueviolet;
     cursor: pointer;
+}
+
+
+
+
+/* Responsive Setting */
+
+@media only screen and (max-width:390px) {
+
+    .coming-soon-div h1{
+        text-align: center;
+        font-size: 3rem;
+        line-height: 100px;
+    }
+
+    .time-box{
+        margin: auto;
+        position: relative;
+        margin-top: 5%;
+        display: flex;
+        font-family: 'Handlee', cursive;
+        font-size: 17px;
+        flex-direction: column;
+    }
 }
