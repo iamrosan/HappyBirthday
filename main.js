@@ -18,7 +18,7 @@ function countD(){
             document.getElementsByTagName('h6')[0].style.display='none';
         }
     });
-    if((localStorage.getItem('date')=='jan 7 2022') || (localStorage.getItem('date')=='')){
+    if((localStorage.getItem('date')=='1 7 2022') || (localStorage.getItem('date')=='7 1 2022') || (localStorage.getItem('date')=='7 jan 2022') || (localStorage.getItem('date')=='jan 7 2022') || (localStorage.getItem('date')=='')){
         sh.innerHTML='Shradha';
     }else{
         sh.innerHTML='to you';
