@@ -4,6 +4,22 @@
     box-sizing: border-box;
 }
 
+#pouringLoveToYou{
+    /* background: url('./img/love-hearts.gif') no-repeat white cover; */
+    position: fixed;
+    top: 0;
+    background-image: url('./img/love-hearts.gif');
+    background-repeat: no-repeat;
+    background-color: white;
+    background-position: center;
+    /* background-size: cover; */
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    color: red;
+    text-align: center;
+}
+
 body{
     background-color: #080808;
     font-family: 'Overlock', cursive;

@@ -7,7 +7,16 @@ let sh = document.querySelector('#shradha');
 const lifeBirthdate = 'Jan 7 '+ (new Date().getFullYear()+1).toString();
 var count =0;
 localStorage.setItem('date','');
+const tiktok = document.getElementById('shra');
+const love = document.querySelector('#pouringLoveToYou');
+const loved = document.querySelector('#uuni');
+function wnsday(){
+    love.style.display='none';
+}
 
+function func(){
+    loved.style.display='none';
+}
 function countD(){
     let bday = document.querySelector('#birth-date').value;
     btnVar.addEventListener('click',()=>{
@@ -20,8 +29,10 @@ function countD(){
     });
     if((localStorage.getItem('date')=='1 7 2022') || (localStorage.getItem('date')=='7 1 2022') || (localStorage.getItem('date')=='7 jan 2022') || (localStorage.getItem('date')=='jan 7 2022') || (localStorage.getItem('date')=='')){
         sh.innerHTML='Shradha';
+        tiktok.style.display='block';
     }else{
         sh.innerHTML='to you';
+        tiktok.style.display='none';
     }
     // let launchDate = localStorage.getItem('date')==''?new Date(lifeBirthdate+" 00:00:00").getTime():new Date(localStorage.getItem('date')+" 00:00:00").getTime() ;
     let launchDate = localStorage.getItem('date')==''?new Date("Jan 7 2022 00:00:00").getTime():new Date(localStorage.getItem('date')+" 00:00:00").getTime() ;
