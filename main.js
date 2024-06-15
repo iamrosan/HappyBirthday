@@ -24,7 +24,7 @@ function countD(){
             document.getElementsByTagName('h6')[0].style.display='none';
         }
     });
-    if((localStorage.getItem('date')=='1 7 2024') || (localStorage.getItem('date')=='7 1 2024') || (localStorage.getItem('date')=='7 jan 2024') || (localStorage.getItem('date')=='jan 7 2024') || (localStorage.getItem('date')=='')){
+    if((localStorage.getItem('date')=='1 7 2025') || (localStorage.getItem('date')=='7 1 2025') || (localStorage.getItem('date')=='7 jan 2025') || (localStorage.getItem('date')=='jan 7 2025') || (localStorage.getItem('date')=='')){
         sh.innerHTML='Shradha';
         tiktok.style.display='block';
     }else{
@@ -32,7 +32,7 @@ function countD(){
         tiktok.style.display='none';
     }
     // let launchDate = localStorage.getItem('date')==''?new Date(lifeBirthdate+" 00:00:00").getTime():new Date(localStorage.getItem('date')+" 00:00:00").getTime() ;
-    let launchDate = localStorage.getItem('date')==''?new Date("Jan 7 2024 00:00:00").getTime():new Date(localStorage.getItem('date')+" 00:00:00").getTime() ;
+    let launchDate = localStorage.getItem('date')==''?new Date("Jan 7 2025 00:00:00").getTime():new Date(localStorage.getItem('date')+" 00:00:00").getTime() ;
     var nowDate = new Date().getTime();
     let distance = launchDate - nowDate;
     var days = Math.floor(distance/(1000*60*60*24));
