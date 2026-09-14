@@ -38,6 +38,7 @@ May every dream you hold close come true, and may the year ahead bring you count
 Wishing you the sweetest birthday and an unforgettable year ahead!
 
 With lots of love ❤️
+@rosansht
 7th January ${numericYear}
 
 See your birthday countdown here: ${siteUrl}`,
@@ -47,7 +48,8 @@ See your birthday countdown here: ${siteUrl}`,
           <p>On this special day, I hope your heart is filled with happiness, your face with smiles, and your year with beautiful moments. You deserve all the love, laughter, and wonderful surprises life has to offer.</p>
           <p>May every dream you hold close come true, and may the year ahead bring you countless reasons to smile. Keep shining and being the amazing person you are.</p>
           <p>Wishing you the sweetest birthday and an unforgettable year ahead!</p>
-          <p style="margin-top: 28px;">With lots of love ❤️</p>
+          <p style="margin-top: 28px; margin-bottom: 4px;">With lots of love ❤️</p>
+          <p style="margin-top: 0; color: #c2386b;">@rosansht</p>
           <p style="color: #8c6274;">7th January ${numericYear}</p>
 
           <p style="margin: 30px 0; text-align: center;">
