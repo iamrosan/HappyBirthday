@@ -1,0 +1,27 @@
+* { padding: 0; margin: 0; box-sizing: border-box; }
+body { min-width: 320px; min-height: 100vh; background: #080808; color: azure; font-family: 'Overlock', cursive; }
+.wrapper { display: flex; width: 95%; min-height: 68vh; flex-direction: column; margin: 0 auto; }
+.logo { display: flex; margin-top: 50px; }
+.logo img { width: 100px; height: 100px; margin: 0 auto; object-fit: contain; }
+.coming-soon-div { width: 100%; margin: 20px auto; font-family: 'Bonheur Royale', cursive; }
+.coming-soon-div h1 { text-align: center; font-size: 5rem; line-height: 1.25; }
+.birthday-emojis { display: inline-block; font-size: .65em; vertical-align: .12em; }
+h6 { text-align: center; font: 13px 'Times New Roman', Times, serif; }
+.time-box { display: flex; flex-direction: column; width: min(100%, 480px); margin: 5% auto auto; font-family: 'Handlee', cursive; font-size: 20px; }
+.countdown { display: flex; justify-content: center; margin-bottom: 30px; text-align: center; }
+.time { flex: 1; }
+.time span { font-size: 1.4em; }
+.content { font-family: 'Overlock', cursive; }
+.submit-div { display: flex; gap: 8px; margin: 20px 0 8px; }
+.submit-div input { flex: 1; min-width: 0; padding: 10px; border: none; border-radius: 10px; outline: none; }
+.submit-div input:focus { box-shadow: 0 0 0 3px blueviolet; }
+.submit-div .btn { padding: 10px 14px; border: 0; border-radius: 6px; transition: background-color 200ms ease, color 200ms ease; }
+.submit-div .btn:hover { background: blueviolet; color: white; cursor: pointer; }
+.error { color: #ff8e8e; font-size: .85em; }
+.tiktok-wrapper { width: min(100% - 32px, 605px); margin: 30px auto; }
+.tiktok-embed { min-width: 0 !important; max-width: 605px; }
+@media (max-width: 390px) {
+  .coming-soon-div h1 { font-size: 2.8rem; }
+  .time-box { font-size: 17px; }
+  .submit-div { flex-direction: column; }
+}
