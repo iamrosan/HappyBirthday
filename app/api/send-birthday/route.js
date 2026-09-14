@@ -17,6 +17,7 @@ export async function POST(request) {
   const user = process.env.GMAIL_USER;
   const password = process.env.GMAIL_APP_PASSWORD;
   const recipient = process.env.BIRTHDAY_EMAIL_TO;
+  const siteUrl = new URL(request.url).origin;
   if (!user || !password || !recipient) {
     return Response.json({ error: 'Gmail environment variables are not configured.' }, { status: 500 });
   }
@@ -40,7 +41,9 @@ May every dream you hold close come true, and may the year ahead bring you count
 Wishing you the sweetest birthday and an unforgettable year ahead!
 
 With lots of love ❤️
-7th January ${numericYear}`,
+7th January ${numericYear}
+
+See your birthday countdown here: ${siteUrl}`,
       html: `
         <div style="font-family: Georgia, serif; max-width: 600px; margin: auto; padding: 32px; color: #3b2431; background: #fff8fb; border-radius: 16px;">
           <h1 style="color: #c2386b; text-align: center;">Happy Birthday, Shradha! 🎉 ❤️</h1>
@@ -49,6 +52,10 @@ With lots of love ❤️
           <p>Wishing you the sweetest birthday and an unforgettable year ahead!</p>
           <p style="margin-top: 28px;">With lots of love ❤️</p>
           <p style="color: #8c6274;">7th January ${numericYear}</p>
+
+          <p style="margin: 30px 0; text-align: center;">
+            <a href="${siteUrl}" style="display: inline-block; padding: 12px 22px; color: white; background: #c2386b; border-radius: 8px; text-decoration: none;">See Your Birthday Countdown</a>
+          </p>
         </div>`,
     });
     sentYears.add(numericYear);
