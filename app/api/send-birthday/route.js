@@ -1,7 +1,7 @@
 import nodemailer from 'nodemailer';
 
-const sentYears = globalThis.__birthdayEmailSentYears ?? new Set();
-globalThis.__birthdayEmailSentYears = sentYears;
+const sentDeliveries = globalThis.__birthdayEmailSentDeliveries ?? new Set();
+globalThis.__birthdayEmailSentDeliveries = sentDeliveries;
 
 export async function POST(request) {
   const { year } = await request.json().catch(() => ({}));
@@ -10,15 +10,14 @@ export async function POST(request) {
   if (!Number.isInteger(numericYear)) {
     return Response.json({ error: 'A valid birthday year is required.' }, { status: 400 });
   }
-  if (sentYears.has(numericYear)) {
-    return Response.json({ success: true, alreadySent: true });
-  }
-
   const user = process.env.GMAIL_USER;
   const password = process.env.GMAIL_APP_PASSWORD;
-  const recipient = process.env.BIRTHDAY_EMAIL_TO;
+  const recipients = process.env.BIRTHDAY_EMAIL_TO
+    ?.split(',')
+    .map((email) => email.trim())
+    .filter(Boolean);
   const siteUrl = new URL(request.url).origin;
-  if (!user || !password || !recipient) {
+  if (!user || !password || !recipients?.length) {
     return Response.json({ error: 'Gmail environment variables are not configured.' }, { status: 500 });
   }
 
@@ -27,10 +26,8 @@ export async function POST(request) {
     auth: { user, pass: password },
   });
 
-  try {
-    await transporter.sendMail({
+  const message = {
       from: `Happy Birthday <${user}>`,
-      to: recipient,
       subject: 'Happy Birthday Shradha! 🎉 ❤️',
       text: `Happy Birthday, Shradha! 🎉 ❤️
 
@@ -57,11 +54,34 @@ See your birthday countdown here: ${siteUrl}`,
             <a href="${siteUrl}" style="display: inline-block; padding: 12px 22px; color: white; background: #c2386b; border-radius: 8px; text-decoration: none;">See Your Birthday Countdown</a>
           </p>
         </div>`,
-    });
-    sentYears.add(numericYear);
-    return Response.json({ success: true });
-  } catch (error) {
-    console.error('Birthday email failed:', error);
-    return Response.json({ error: 'Unable to send the birthday email.' }, { status: 500 });
+  };
+
+  const pendingRecipients = recipients.filter(
+    (recipient) => !sentDeliveries.has(`${numericYear}:${recipient.toLowerCase()}`),
+  );
+  if (!pendingRecipients.length) {
+    return Response.json({ success: true, alreadySent: true, sent: 0 });
   }
+
+  const results = await Promise.allSettled(
+    pendingRecipients.map(async (recipient) => {
+      await transporter.sendMail({ ...message, to: recipient });
+      sentDeliveries.add(`${numericYear}:${recipient.toLowerCase()}`);
+    }),
+  );
+  const failed = results.filter((result) => result.status === 'rejected');
+
+  if (failed.length) {
+    failed.forEach((result) => console.error('Birthday email failed:', result.reason));
+    return Response.json(
+      {
+        error: 'Email delivery failed for one or more recipients.',
+        sent: results.length - failed.length,
+        failed: failed.length,
+      },
+      { status: 502 },
+    );
+  }
+
+  return Response.json({ success: true, sent: results.length });
 }
